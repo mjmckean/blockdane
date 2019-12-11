@@ -23,16 +23,20 @@
                 font-size: 24px;
                 height: 40px;
                 width: 100px;
+
+                -webkit-transition: 0.15s;
+                -moz-transition: 0.15s;
+                -ms-transition: 0.15s;
+                -o-transition: 0.15s;
+                transition: 0.15s;
             }
             .butdane:focus {
                 outline: none;
             }
             .clickedane {
-                -webkit-transition: 3s;
-                -moz-transition: 3s;
-                -ms-transition: 3s;
-                -o-transition: 3s;
-                transition: 3s;
+                height: 50px !important;
+                pointer-events: none;
+                width: 120px !important;
             }
         </style>
     </head>
@@ -43,17 +47,20 @@
 
         <script>
             const sound = new Audio();
-            const danes = ["dane1.m4a", "dane2.m4a", "dane3.mov", "dane4.m4a", "dane5.m4a"];
+            const danes = ["dane1.m4a", "dane2.m4a", "dane3.mov", "dane5.m4a", "dane6.m4a", "dane7.m4a", "dane8.m4a", "dane9.m4a"];
             const button = document.querySelector("button");
             button.addEventListener("click", clicked);
     
             function clicked() {
-                // button.className += 
+                button.className = "butdane clickedane transitiondane";
 
                 randomIndex = Math.floor(Math.random() * danes.length);
-                console.log(randomIndex);
                 sound.src = danes[randomIndex];
                 sound.play();
+
+                setTimeout(function() {
+                    button.className = "butdane";
+                }, 300);
             }
         </script>
     </body>
