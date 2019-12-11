@@ -2,8 +2,59 @@
 <html>
     <head>
         <title>BlockDane</title>
+        <link rel="icon" href="dane.jpg" type="image/x-icon"/>
+
+        <style>
+            body {
+                background-color: #FEFEFE;
+            }
+            .condaner {
+                align-content: center;
+                display: flex;
+                justify-content: center;
+                margin: 400px 0 0 0;
+                width: 100%;
+            }
+            .butdane {
+                background-color: #003780;
+                border: none;
+                border-radius: 15px;
+                color: white;
+                font-size: 24px;
+                height: 40px;
+                width: 100px;
+            }
+            .butdane:focus {
+                outline: none;
+            }
+            .clickedane {
+                -webkit-transition: 3s;
+                -moz-transition: 3s;
+                -ms-transition: 3s;
+                -o-transition: 3s;
+                transition: 3s;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <div class="condaner">
+            <button class="butdane" >DANE</button>
+        </div>
+
+        <script>
+            const sound = new Audio();
+            const danes = ["dane1.m4a", "dane2.m4a", "dane3.mov", "dane4.m4a", "dane5.m4a"];
+            const button = document.querySelector("button");
+            button.addEventListener("click", clicked);
+    
+            function clicked() {
+                // button.className += 
+
+                randomIndex = Math.floor(Math.random() * danes.length);
+                console.log(randomIndex);
+                sound.src = danes[randomIndex];
+                sound.play();
+            }
+        </script>
     </body>
 </html>
